@@ -1287,7 +1287,7 @@ if (typeof jQuery === 'undefined') {
     title: '',
     delay: 0,
     html: false,
-    container-fluid: false,
+    container: false,
     viewport: {
       selector: 'body',
       padding: 0
@@ -1452,7 +1452,7 @@ if (typeof jQuery === 'undefined') {
         .addClass(placement)
         .data('bs.' + this.type, this)
 
-      this.options.container-fluid ? $tip.appendTo(this.options.container-fluid) : $tip.insertAfter(this.$element)
+      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
       this.$element.trigger('inserted.bs.' + this.type)
 
       var pos          = this.getPosition()
@@ -2108,11 +2108,11 @@ if (typeof jQuery === 'undefined') {
     })
   }
 
-  Tab.prototype.activate = function (element, container-fluid, callback) {
-    var $active    = container-fluid.find('> .active')
+  Tab.prototype.activate = function (element, container, callback) {
+    var $active    = container.find('> .active')
     var transition = callback
       && $.support.transition
-      && ($active.length && $active.hasClass('fade') || !!container-fluid.find('> .fade').length)
+      && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length)
 
     function next() {
       $active
